@@ -3,7 +3,6 @@ package com.codingdojo.mutualade.services;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -30,6 +29,9 @@ public class AidService {
 		
 		System.out.println(aidReq.getDateSTR());
 		
+		if(aidReq.getDateSTR() == "") {	
+			return aidRepo.save(aidReq);
+		}
 		
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		Date dateUpdated = date.parse(aidReq.getDateSTR());
@@ -51,14 +53,21 @@ public class AidService {
 	
 	// Get One Aid Request
 	public AidRequest oneAidReq(Long id) {
+	
 		
-//		AidRequest aidReq = aidRepo.findById(id).orElse(null);
-//		Date date = aidReq.getAidDate();
-//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//		String strDate = dateFormat.format(date);
-//		aidReq.setDateSTR(strDate);
-//		System.out.println(aidReq.getDateSTR());
+		AidRequest aidReq = aidRepo.findById(id).orElse(null);
 		
+		if(aidReq.getDateSTR() == null) {
+			System.out.println(aidReq.getDateSTR());
+			return aidRepo.findById(id).orElse(null);
+		}
+		
+		Date date = aidReq.getAidDate();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String strDate = dateFormat.format(date);
+		aidReq.setDateSTR(strDate);
+		System.out.println(aidReq.getDateSTR());
+		System.out.println(aidReq.getAidDate());
 		return aidRepo.findById(id).orElse(null);
 	}
 	

@@ -96,7 +96,6 @@ public class AidController {
 			) throws ParseException {
 		
 		
-		aidService.createAidReq(aidReq);
 		
 		
 		if (session.getAttribute("userId") == null) {
@@ -108,6 +107,8 @@ public class AidController {
 			System.out.println(result);
 			return "NewAid.jsp";
 		}
+		
+		aidService.createAidReq(aidReq);
 		
 		return "redirect:/dashboard";
 		

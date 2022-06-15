@@ -1,25 +1,40 @@
 package com.codingdojo.mutualade.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="organization")
-
 public class Organization extends User {
 	
 	@NotEmpty(message="Company Name is required")
-	private String orgname;
+	private String orgName;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<OrgAid> orgAid;
 
 	
 	// Getters & Setters
-	public String getOrgname() {
-		return orgname;
+	
+	public String getOrgName() {
+		return orgName;
 	}
 
-	public void setOrgname(String orgname) {
-		this.orgname = orgname;
+	public void setOrgName(String orgname) {
+		this.orgName = orgname;
+	}
+
+	public List<OrgAid> getOrgAid() {
+		return orgAid;
+	}
+
+	public void setOrgAid(List<OrgAid> orgAid) {
+		this.orgAid = orgAid;
 	}
 	
 	

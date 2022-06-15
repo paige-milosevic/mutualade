@@ -15,8 +15,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row justify-content-between align-items-center">
-			<h1 class="text-pink">MutualAde</h1>
+		<div class="navbar justify-content-between align-items-center">
+			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
 			<a href="/dashboard">Dashboard</a>
 			<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			<a href="/logout">Logout</a>
@@ -74,7 +74,7 @@
 					<form:input type="hidden" path="user" value="${user.id}"/>
 					
 				</div>
-				<input class="btn btn-light" type="submit" value="Submit Request">
+				<input class="btn btn-sm pink_button" type="submit" value="Submit Request">
 			</form:form>
 		</div>
 	</div>

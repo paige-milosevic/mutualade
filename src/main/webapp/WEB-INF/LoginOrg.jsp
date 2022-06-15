@@ -19,7 +19,8 @@
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
 			<a href="/">Community Member Login</a>
-			<a href="/org">Organization Login</a>
+			<a href="/">Organization Login</a>
+			
 		</div>
 		<div class="row">
 			<h4>When life give you <span style="color:#FBC02D""font-weight:bold">lemons</span>... Give MutualAde!</h4>
@@ -27,8 +28,15 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<h4>Community Member Registration</h4>
-				<form:form action="/register" method="post" modelAttribute="newUser" class="form">
+				<h4>Organization Registration</h4>
+				<form:form action="/org/register" method="post" modelAttribute="newUser" class="form">
+					<div class="form-row mt-2 col-md-12">
+						<div class="text-danger">
+							<form:errors path="orgName"/>
+						</div>
+						<form:label path="orgName">Organization Name</form:label>
+						<form:input path="orgName" type="text"/>
+					</div>
 					<div class="form-row mt-2 col-md-12">
 						<div class="text-danger">
 							<form:errors path="firstName"/>
@@ -72,16 +80,12 @@
 				<h4>Login</h4>
 				<form:form action="/login" method="post" modelAttribute="newLogin" class="form">
 					<div class="form-row mt-2 col-md-12">
-						<div class="text-danger">
-							<form:errors path="email"/>
-						</div>
+						<p><form:errors path="email"/></p>
 						<form:label path="email">Email</form:label>
 						<form:input path="email" type="email"/>
 					</div>
 					<div class="form-row mt-2 col-md-12">
-						<div class="text-danger">
-							<form:errors path="password"/>
-						</div>
+						<form:errors path="password"/>
 						<form:label path="password">Password</form:label>
 						<form:input path="password" type="password"/>
 					</div>

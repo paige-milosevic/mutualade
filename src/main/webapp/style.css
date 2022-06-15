@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.yellow_button {
+	background-color: #FBC02D;
+	color: white;
+}
+
+.pink_button {
+	background-color: #C2185B;
+	color: white;
+}
+
+.pink_table {
+	background-color: #C2185B;
+}

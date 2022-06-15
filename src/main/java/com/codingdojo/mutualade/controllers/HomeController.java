@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codingdojo.mutualade.models.LoginUser;
+import com.codingdojo.mutualade.models.Organization;
 import com.codingdojo.mutualade.models.User;
 import com.codingdojo.mutualade.services.AidService;
+import com.codingdojo.mutualade.services.OrgService;
 import com.codingdojo.mutualade.services.UserService;
 
 @Controller
@@ -25,8 +27,15 @@ public class HomeController {
 	@Autowired
 	AidService aidService;
 	
+	@Autowired
+	OrgService orgService;
+	
+	
 	//GET Requests
-		@GetMapping("/")
+	
+	// Member Login & Reg
+	
+	@GetMapping("/")
 	public String index(Model model,
 			HttpSession session
 			) {
@@ -40,6 +49,25 @@ public class HomeController {
 		return "Login.jsp";
 	}
 	
+	// Org Login & Reg
+	
+	@GetMapping("/org")
+	public String indexOrg(Model model,
+			HttpSession session
+			) {
+		model.addAttribute("newUser", new Organization());
+		model.addAttribute("newLogin", new LoginUser());
+		
+		if (session.getAttribute("userId") != null) {
+			return "redirect:/dashboard";
+		} 
+		
+		return "LoginOrg.jsp";
+	}
+	
+		
+		
+		
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
@@ -58,12 +86,15 @@ public class HomeController {
 		
 		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
 		model.addAttribute("mutualAid", aidService.allAidRequests());
+		model.addAttribute("organization", orgService.allOrgs());
 		
 		return "Dashboard.jsp";
 		
 	}
 	
 	// POST Requests
+	
+	// Member Registration
 	
 	@PostMapping("/register")
 	public String reg(
@@ -86,6 +117,31 @@ public class HomeController {
 		
 	}
 	
+	// Org Registration
+	
+	@PostMapping("/org/register")
+	public String reg(
+			@Valid @ModelAttribute("newUser") Organization newOrg,
+			BindingResult result,
+			Model model,
+			HttpSession session
+			) {
+		
+		orgService.register(newOrg, result);
+		
+		if(result.hasErrors()) {
+			model.addAttribute("newLogin", new LoginUser());
+			System.out.println(result);
+			return "LoginOrg.jsp";
+		}
+		
+		session.setAttribute("userId", newOrg.getId());
+		return "redirect:/dashboard";
+		
+	}
+	
+	// Login
+	
 	@PostMapping("/login")
 	public String login(
 			@Valid @ModelAttribute("newLogin") LoginUser newLogin,
@@ -106,6 +162,8 @@ public class HomeController {
 		
 		return "redirect:/dashboard";
 	}
+	
+
 
 }
 

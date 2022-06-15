@@ -22,21 +22,10 @@
 			<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			<a href="/logout">Logout</a>
 		</div>
-		<div>
-			<h2><c:out value="${aid.title}"></c:out></h2>
-			<p>Name: <c:out value="${aid.user.firstName}"></c:out></p>
-			<p>Description: <c:out value="${aid.description}"></c:out></p>
-			<p>Need Date: <c:out value="${aid.aidDate}"></c:out></p>
-			<p>Urgency: <c:out value="${aid.urgency}"></c:out></p>
-			<p>Instagram: <c:out value="${aid.instagram}"></c:out></p>
-			<p>Venmo: <c:out value="${aid.venmo}"></c:out></p>
+		<div class="row">
+			<h4><c:out value="${org.orgName}"></c:out></h4>
 		</div>
-		<c:if test ="${aid.user.id == user.id}">
-		<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
-			<form:form action="/aid/delete/${aid.id}" method="delete">
-			<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>
-			</form:form>
-		</c:if>
 	</div>
+
 </body>
 </html>

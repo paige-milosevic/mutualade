@@ -12,6 +12,7 @@
     rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 	<div class="container">
@@ -22,9 +23,8 @@
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row">
-			<h1><c:out value="${aid.title}"></c:out></h1>
-			<form:form action="/aid/update/${aid.id}" method="post" modelAttribute="aid">
-				<input type="hidden" name="_method" value="put"/>
+			<h4>Make Mutual Aid</h4>
+			<form:form action="/org/create/aid" method="post" modelAttribute="orgAid">
 				<div class="form-row mt-2 col-md-12">
 					<div class="text-danger">
 						<form:errors path="title"/>
@@ -33,21 +33,21 @@
 					<form:input path="title" input="text"/>
 				</div>
 				<div class="form-row mt-2 col-md-12">
-					<form:label path="dateSTR">Need Request Date: </form:label>
-					<form:input path="dateSTR" type="date" value="${aid.aidDate}"/>
-
+					<div class="text-danger">
+						<form:errors path="frequency"/>
+					</div>
+					<form:label path="frequency">Urgency: </form:label>
+					<form:select path="frequency">
+						<option value="Daily">Daily</option>
+						<option value="Weekly">Weekly</option>
+						<option value="Bi-Weekly">Bi-Weekly</option>
+						<option value="Monthly">Monthly</option>
+						<option value="OneTime">One Time</option>
+					</form:select>
 				</div>
 				<div class="form-row mt-2 col-md-12">
-					<div class="text-danger">
-						<form:errors path="urgency"/>
-					</div>
-					<form:label path="urgency">Urgency: </form:label>
-					<form:select path="urgency">
-						<option value="${aid.urgency}"><c:out value="${aid.urgency}"></c:out></option>
-						<option value="High">High</option>
-						<option value="Medium">Medium</option>
-						<option value="Low">Low</option>
-					</form:select>
+					<form:label path="dateSTR">Date: </form:label>
+					<form:input path="dateSTR" type="date" />
 				</div>
 				<div class="form-row mt-2 col-md-12">
 					<div class="text-danger">
@@ -58,28 +58,27 @@
 				</div>
 				<div class="form-row mt-2 col-md-12">
 					<div class="text-danger">
-						<form:errors path="privacy"/>
+						<form:errors path="address"/>
 					</div>
-					<form:label path="privacy">Private</form:label>
-					<form:radiobutton path="privacy" value="private" checked="true"/>
-					<form:label path="privacy">Public</form:label>
-					<form:radiobutton path="privacy" value="public"/>
+					<div class="form-row mt-2 col-md-12">
+						<form:label path="address">Address: </form:label>
+						<form:input path="address" input="text"/>
+						<form:label path="apt">Apt/Ste: </form:label>
+						<form:input path="apt" input="text"/>
+					</div>
+					<div class="form-row mt-2 col-md-12">
+						<form:label path="city">City: </form:label>
+						<form:input path="city" input="text"/>
+						<form:label path="state">State: </form:label>
+						<form:input path="state" input="text"/>
+						<form:label path="zipCode">Zip Code: </form:label>
+						<form:input path="zipCode" input="text"/>
+					</div>
 				</div>
-				<div class="form-row mt-2 col-md-12">
-					<form:label path="venmo">Venmo Handle: </form:label>
-					<form:input path="venmo" input="text"/>
-				</div>
-				<div class="form-row mt-2 col-md-12">
-					<form:label path="instagram">Instragram: </form:label>
-					<form:input path="instagram" input="text"/>
-				</div>
-				<div>
-					<form:input type="hidden" path="user" value="${user.id}"/>
-					
-				</div>
-				<input class="btn btn-light" type="submit" value="Submit Request">
+				<input class="btn btn-sm pink_button mt-2" type="submit" value="Submit Request">
 			</form:form>
 		</div>
 	</div>
+
 </body>
 </html>
