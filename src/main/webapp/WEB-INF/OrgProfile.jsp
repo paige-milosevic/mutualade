@@ -26,24 +26,28 @@
 			<h4><c:out value="${org.orgName}"></c:out></h4>
 			<h6>Check out the MutualAde <c:out value="${org.orgName}"></c:out> is offering!</h6>
 		</div>
+		<div class="row">
 		<c:forEach items="${orgAid}" var="orgAid">
-		<div class="card w-50 mt-2">
-			<div class="card-body">
-				<p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p>
-				<p class="card-text"><c:out value="${orgAid.description}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${orgAid.aidDate}"></c:out></p>
-				<p class="card-text lh-1">Location:</p>
-				<p class="card-text lh-1"><c:out value="${orgAid.address}"></c:out> <c:out value="${orgAid.apt}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${orgAid.city}"></c:out>, <c:out value="${orgAid.state}"></c:out> <c:out value="${orgAid.zipCode}"></c:out></p>
-				<c:if test="${orgAid.org.id == user.id}">
-					<a class="btn btn-sm pink_button mt-2 " href="/org/aid/update/${orgAid.id}" role="button">Update MutualAde</a>
-					<form:form action="/org/aid/delete/${orgAid.id}" method="delete">
-					<button class="btn btn-sm yellow_button mt-2">Remove MutualAde</button>
-					</form:form>
-				</c:if>
+			<div>
+				<div class="card w-50 mt-2">
+					<div class="card-body">
+					<p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p>
+					<p class="card-text"><c:out value="${orgAid.description}"></c:out></p>
+					<p class="card-text lh-1"><c:out value="${orgAid.aidDate}"></c:out></p>
+					<p class="card-text lh-1">Location:</p>
+					<p class="card-text lh-1"><c:out value="${orgAid.address}"></c:out> <c:out value="${orgAid.apt}"></c:out></p>
+					<p class="card-text lh-1"><c:out value="${orgAid.city}"></c:out>, <c:out value="${orgAid.state}"></c:out> <c:out value="${orgAid.zipCode}"></c:out></p>
+					<c:if test="${orgAid.org.id == user.id}">
+						<a class="btn btn-sm pink_button mt-2 " href="/org/aid/update/${orgAid.id}" role="button">Update MutualAde</a>
+						<form:form action="/org/aid/delete/${orgAid.id}" method="delete">
+						<button class="btn btn-sm yellow_button mt-2">Remove MutualAde</button>
+						</form:form>
+					</c:if>
+					</div>
+				</div>
 			</div>
-		</div>
 		</c:forEach>
+		</div>
 	</div>
 
 </body>

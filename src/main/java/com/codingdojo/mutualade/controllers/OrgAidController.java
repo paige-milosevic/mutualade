@@ -118,7 +118,7 @@ public class OrgAidController {
 		
 		orgAidService.updateOrgAid(orgAid);		
 		
-		return "redirect:/org/page/{id}";
+		return "redirect:/dashboard";
 	}
 	
 	// DELETE Mapping
