@@ -36,7 +36,7 @@
 					<div class="text-danger">
 						<form:errors path="frequency"/>
 					</div>
-					<form:label path="frequency">Urgency: </form:label>
+					<form:label path="frequency">Frequency: </form:label>
 					<form:select path="frequency">
 						<option value="Daily">Daily</option>
 						<option value="Weekly">Weekly</option>
@@ -67,13 +67,25 @@
 						<form:input path="apt" input="text"/>
 					</div>
 					<div class="form-row mt-2 col-md-12">
+						<div class="text-danger">
+							<form:errors path="city"/>
+						</div>
 						<form:label path="city">City: </form:label>
 						<form:input path="city" input="text"/>
+						<div class="text-danger">
+							<form:errors path="state"/>
+						</div>
 						<form:label path="state">State: </form:label>
 						<form:input path="state" input="text"/>
+						<div class="text-danger">
+							<form:errors path="zipCode"/>
+						</div>
 						<form:label path="zipCode">Zip Code: </form:label>
 						<form:input path="zipCode" input="text"/>
 					</div>
+				</div>
+				<div>
+					<form:input type="hidden" path="org" value="${org.id}"/>
 				</div>
 				<input class="btn btn-sm pink_button mt-2" type="submit" value="Submit Request">
 			</form:form>

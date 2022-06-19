@@ -12,6 +12,7 @@
     rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 	<div class="container">
@@ -22,7 +23,7 @@
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row">
-			<h1><c:out value="${aid.title}"></c:out></h1>
+			<h4><c:out value="${aid.title}"></c:out></h4>
 			<form:form action="/aid/update/${aid.id}" method="post" modelAttribute="aid">
 				<input type="hidden" name="_method" value="put"/>
 				<div class="form-row mt-2 col-md-12">
@@ -77,7 +78,7 @@
 					<form:input type="hidden" path="user" value="${user.id}"/>
 					
 				</div>
-				<input class="btn btn-light" type="submit" value="Submit Request">
+				<input class="btn btn-sm pink_button mt-2" type="submit" value="Submit Request">
 			</form:form>
 		</div>
 	</div>

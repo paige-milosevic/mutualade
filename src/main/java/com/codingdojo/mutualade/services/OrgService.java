@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.codingdojo.mutualade.models.LoginUser;
+import com.codingdojo.mutualade.models.OrgAid;
 import com.codingdojo.mutualade.models.Organization;
 import com.codingdojo.mutualade.models.User;
 import com.codingdojo.mutualade.repos.OrgRepo;
@@ -83,6 +84,14 @@ public class OrgService {
 		System.out.println(org.getOrgName());
 		
 		return org;
+	}
+	
+	// Get OrgAid for One Org
+	
+	public List<OrgAid> getOrgAid(Long id) {
+		
+		Organization org = orgRepo.findById(id).orElse(null);
+		return org.getOrgAid();
 	}
 	
 	// Get All Orgs

@@ -15,7 +15,7 @@ public class Organization extends User {
 	@NotEmpty(message="Company Name is required")
 	private String orgName;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="org", fetch = FetchType.LAZY)
 	private List<OrgAid> orgAid;
 
 	

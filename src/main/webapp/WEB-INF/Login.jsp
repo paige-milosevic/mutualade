@@ -30,7 +30,7 @@
 				<h4>Community Member Registration</h4>
 				<form:form action="/register" method="post" modelAttribute="newUser" class="form">
 					<div class="form-row mt-2 col-md-12">
-						<div class="text-danger">
+						<div class="alert-danger">
 							<form:errors path="firstName"/>
 						</div>
 						<form:label path="firstName">First Name</form:label>

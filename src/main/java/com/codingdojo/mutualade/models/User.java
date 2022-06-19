@@ -49,7 +49,7 @@ public class User {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 	private List<AidRequest> aidReq;
 	
 	@PrePersist

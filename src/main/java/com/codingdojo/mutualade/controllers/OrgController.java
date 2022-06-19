@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.codingdojo.mutualade.services.OrgAidService;
 import com.codingdojo.mutualade.services.OrgService;
 import com.codingdojo.mutualade.services.UserService;
 
@@ -19,6 +20,9 @@ public class OrgController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	OrgAidService orgAidService;
 	
 	//GET Mapping
 	
@@ -34,7 +38,8 @@ public class OrgController {
 		} 
 		
 		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
-		model.addAttribute("organization", orgService.oneOrg(id));
+		model.addAttribute("org", orgService.oneOrg(id));
+		model.addAttribute("orgAid", orgService.getOrgAid(id));
 		
 		
 		return "OrgProfile.jsp";
@@ -53,6 +58,7 @@ public class OrgController {
 		
 		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
 		model.addAttribute("org", orgService.oneOrg(id));
+		model.addAttribute("orgAid", orgService.getOrgAid(id));
 		
 		return "OrgProfile.jsp";
 	}

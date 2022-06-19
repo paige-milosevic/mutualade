@@ -118,22 +118,26 @@ public class AidController {
 	
 	@PutMapping("/aid/update/{id}")
 	public String updateAid(
-			@Valid @ModelAttribute("aid") AidRequest aid,
+			@Valid @ModelAttribute("aid") AidRequest aidNew,
 			BindingResult result,
 			Model model,
 			HttpSession session
 			) throws ParseException {
 		
-		aidService.updateAidReq(aid);
-		
 		if (session.getAttribute("userId") == null) {
 			return "redirect:/";
 		} 
 		
+//		AidRequest aid = aidService.oneAidReq(aidNew.getId());
+		
 		if(result.hasErrors()) {
+//			model.addAttribute("aid", aid);
+//			System.out.println(aid.getTitle());
 			System.out.println(result);
 			return "EditAid.jsp";
 		}
+		
+		aidService.updateAidReq(aidNew);
 		
 		
 		return "redirect:/aid/{id}";
