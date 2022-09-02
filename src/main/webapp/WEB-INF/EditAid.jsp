@@ -23,7 +23,8 @@
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row">
-			<h4><c:out value="${aid.title}"></c:out></h4>
+<%-- 			<h4><c:out value="${aid.title}"></c:out></h4> --%>
+			<h4>Edit Aid Request</h4>
 			<form:form action="/aid/update/${aid.id}" method="post" modelAttribute="aid">
 				<input type="hidden" name="_method" value="put"/>
 				<div class="form-row mt-2 col-md-12">
@@ -76,7 +77,6 @@
 				</div>
 				<div>
 					<form:input type="hidden" path="user" value="${user.id}"/>
-					
 				</div>
 				<input class="btn btn-sm pink_button mt-2" type="submit" value="Submit Request">
 			</form:form>

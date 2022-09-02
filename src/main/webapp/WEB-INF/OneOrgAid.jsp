@@ -24,20 +24,17 @@
 		</div>
 		<div class="card w-50 mt-2">
 			<div class="card-body">
-				<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${aid.user.firstName}"></c:out> is seeking mutual aid.</p>
-				<p class="card-text lh-1">Description: <c:out value="${aid.description}"></c:out></p>
-				<p class="card-text lh-1">Need Date: <c:out value="${aid.dateSTR}"></c:out></p>
-				<p class="card-text lh-1">Urgency: <c:out value="${aid.urgency}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${aid.user.firstName}"></c:out>'s contact information: </p>
-				<p class="card-text lh-1">Instagram: <c:out value="${aid.instagram}"></c:out></p>
-				<p class="card-text lh-1">Venmo: <c:out value="${aid.venmo}"></c:out></p>
-				<c:if test ="${aid.user.id == user.id}">
-					<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
-					<form:form action="/aid/delete/${aid.id}" method="delete">
+				<p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p>
+				<p class="card-text lh-1"><c:out value="${orgAid.frequency}"></c:out> is seeking mutual aid.</p>
+				<p class="card-text lh-1">Description: <c:out value="${orgAid.description}"></c:out></p>
+				<p class="card-text lh-1">Need Date: <c:out value="${orgAid.dateSTR}"></c:out></p>
+				<p class="card-text lh-1">Frequency: <c:out value="${orgAid.frequency}"></c:out></p>
+<%-- 				<c:if test ="${orgAid.user.id == user.id}">
+					<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${orgAid.id}" role="button">Update Aid Request</a>
+					<form:form action="/aid/delete/${orgAid.id}" method="delete">
 					<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>
 					</form:form>
-				</c:if>
+				</c:if> --%>
 			</div>
 		</div>
 	</div>

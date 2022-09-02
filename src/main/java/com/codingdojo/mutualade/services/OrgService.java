@@ -1,5 +1,6 @@
 package com.codingdojo.mutualade.services;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,6 +84,7 @@ public class OrgService {
 		Organization org = orgRepo.findById(id).orElse(null);
 		System.out.println(org.getOrgName());
 		
+		
 		return org;
 	}
 	
@@ -90,7 +92,14 @@ public class OrgService {
 	
 	public List<OrgAid> getOrgAid(Long id) {
 		
+		
+		
 		Organization org = orgRepo.findById(id).orElse(null);
+		
+		List<OrgAid> orgAid = org.getOrgAid();
+		
+
+		
 		return org.getOrgAid();
 	}
 	

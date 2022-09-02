@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.codingdojo.mutualade.models.OrgAid;
-import com.codingdojo.mutualade.models.Organization;
 import com.codingdojo.mutualade.services.OrgAidService;
 import com.codingdojo.mutualade.services.OrgService;
 import com.codingdojo.mutualade.services.UserService;
@@ -47,12 +46,31 @@ public class OrgAidController {
 			return "redirect:/";
 		} 
 		
+		
 		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
 		model.addAttribute("org", orgService.oneOrg((Long)session.getAttribute("userId")));
 		model.addAttribute("orgAid", new OrgAid());
 		
 		return "MakeAid.jsp";
 	}
+	
+	@GetMapping("/orgaid/{id}")
+	public String getOneAid(
+			@PathVariable("id") Long id,
+			Model model,
+			HttpSession session
+			) {
+		
+		if (session.getAttribute("userId") == null) {
+			return "redirect:/";
+		} 
+		
+		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
+		model.addAttribute("orgAid", orgAidService.oneOrgAid(id));
+		
+		return "OneOrgAid.jsp";
+	}
+	
 	
 	@GetMapping("org/aid/update/{id}")
 	public String updateOneAid(
@@ -132,6 +150,8 @@ public class OrgAidController {
 		
 		return "redirect:/dashboard";
 	}
+	
+	
 	
 	
 }

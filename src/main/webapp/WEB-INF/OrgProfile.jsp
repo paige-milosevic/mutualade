@@ -31,16 +31,16 @@
 			<div>
 				<div class="card w-50 mt-2">
 					<div class="card-body">
-					<p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p>
+					<a href="/orgaid/${orgAid.id}"><p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p></a>
 					<p class="card-text"><c:out value="${orgAid.description}"></c:out></p>
-					<p class="card-text lh-1"><c:out value="${orgAid.aidDate}"></c:out></p>
+					<p class="card-text lh-1"><c:out value="${orgAid.dateSTR}"></c:out></p>
 					<p class="card-text lh-1">Location:</p>
 					<p class="card-text lh-1"><c:out value="${orgAid.address}"></c:out> <c:out value="${orgAid.apt}"></c:out></p>
 					<p class="card-text lh-1"><c:out value="${orgAid.city}"></c:out>, <c:out value="${orgAid.state}"></c:out> <c:out value="${orgAid.zipCode}"></c:out></p>
 					<c:if test="${orgAid.org.id == user.id}">
 						<a class="btn btn-sm pink_button mt-2 " href="/org/aid/update/${orgAid.id}" role="button">Update MutualAde</a>
 						<form:form action="/org/aid/delete/${orgAid.id}" method="delete">
-						<button class="btn btn-sm yellow_button mt-2">Remove MutualAde</button>
+						<button class="btn btn-sm yellow_button mt-2" onclick="return confirm("Are you sure you want to delete?")">Remove MutualAde</button>
 						</form:form>
 					</c:if>
 					</div>
@@ -49,6 +49,5 @@
 		</c:forEach>
 		</div>
 	</div>
-
 </body>
 </html>

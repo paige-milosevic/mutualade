@@ -57,14 +57,15 @@ public class AidService {
 		
 		AidRequest aidReq = aidRepo.findById(id).orElse(null);
 		
-		if(aidReq.getDateSTR() == null) {
+		if(aidReq.getDateSTR() != null) {
 			System.out.println(aidReq.getDateSTR());
 			return aidRepo.findById(id).orElse(null);
 		}
 		
 		Date date = aidReq.getAidDate();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 		String strDate = dateFormat.format(date);
+		
 		aidReq.setDateSTR(strDate);
 		System.out.println(aidReq.getDateSTR());
 		System.out.println(aidReq.getAidDate());

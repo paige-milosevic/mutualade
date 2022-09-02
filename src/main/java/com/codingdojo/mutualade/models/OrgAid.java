@@ -52,7 +52,7 @@ public class OrgAid {
 	@Size(min=5, max=5, message="Zip Code must be 5 numbers long")
 	private String zipCode;
 	
-	@Transient
+
 	private String dateSTR;
 	
 	@Column

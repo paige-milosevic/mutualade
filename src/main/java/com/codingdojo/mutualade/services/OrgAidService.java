@@ -60,7 +60,7 @@ public class OrgAidService {
 		}
 		
 		Date date = orgAid.getAidDate();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 		String strDate = dateFormat.format(date);
 		orgAid.setDateSTR(strDate);
 		System.out.println(orgAid.getDateSTR());
@@ -74,7 +74,9 @@ public class OrgAidService {
 	public Organization getOrgId(Long id) {
 		
 		OrgAid orgAid = orgAidRepo.findById(id).orElse(null);
+		
 		Organization org = orgAid.getOrg();
+		
 		return org;
 		
 	}

@@ -49,6 +49,7 @@ public class UserService {
 	public User login(LoginUser newLogin, BindingResult result) {
 		
 		Optional<User> userLookUp = userRepo.findByEmail(newLogin.getEmail());
+		
 		if (!userLookUp.isPresent()) {
 			result.rejectValue("email", "NoAccount", "No account found.");
 			return null;
@@ -64,6 +65,8 @@ public class UserService {
 		if (result.hasErrors()) {
 			return null;
 		}
+		
+		System.out.println(user.getId());
 		
 		return user;
 		

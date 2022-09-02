@@ -43,7 +43,7 @@
 					</tbody>
 				</table>
 				<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
-<%--  	 			<c:if test ="${user.dtype != Organization}">
+<%--   	 			<c:if test ="${user.id != }">
 					<a class="btn pink_button" href="/aid/new" role="button">Make MutualAde</a>
 				</c:if>  --%>
 			</div>
