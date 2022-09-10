@@ -19,7 +19,7 @@
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
 			<a href="/dashboard">Dashboard</a>
-			<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+			<a href="/member/profile">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row">

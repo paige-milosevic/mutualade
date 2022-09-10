@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codingdojo.mutualade.models.LoginUser;
+import com.codingdojo.mutualade.models.Member;
 import com.codingdojo.mutualade.models.Organization;
 import com.codingdojo.mutualade.models.User;
 import com.codingdojo.mutualade.services.AidService;
+import com.codingdojo.mutualade.services.MemberService;
 import com.codingdojo.mutualade.services.OrgService;
 import com.codingdojo.mutualade.services.UserService;
 
@@ -29,6 +31,9 @@ public class HomeController {
 	
 	@Autowired
 	OrgService orgService;
+	
+	@Autowired
+	MemberService memService;
 	
 	
 	//GET Requests
@@ -88,6 +93,10 @@ public class HomeController {
 		model.addAttribute("mutualAid", aidService.allAidRequests());
 		model.addAttribute("organization", orgService.allOrgs());
 		
+		
+		
+		
+		
 		return "Dashboard.jsp";
 		
 	}
@@ -98,13 +107,13 @@ public class HomeController {
 	
 	@PostMapping("/register")
 	public String reg(
-			@Valid @ModelAttribute("newUser") User newUser,
+			@Valid @ModelAttribute("newUser") Member newUser,
 			BindingResult result,
 			Model model,
 			HttpSession session
 			) {
 		
-		User user = userService.register(newUser, result);
+		memService.register(newUser, result);
 		
 		if(result.hasErrors()) {
 			model.addAttribute("newLogin", new LoginUser());
@@ -112,7 +121,7 @@ public class HomeController {
 			return "Login.jsp";
 		}
 		
-		session.setAttribute("userId", user.getId());
+		session.setAttribute("userId", newUser.getId());
 		return "redirect:/dashboard";
 		
 	}

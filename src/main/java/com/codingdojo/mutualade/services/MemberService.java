@@ -1,7 +1,5 @@
 package com.codingdojo.mutualade.services;
 
-import java.lang.reflect.Field;
-import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -10,26 +8,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.codingdojo.mutualade.models.LoginUser;
-import com.codingdojo.mutualade.models.OrgAid;
-import com.codingdojo.mutualade.models.Organization;
+import com.codingdojo.mutualade.models.Member;
 import com.codingdojo.mutualade.models.User;
-import com.codingdojo.mutualade.repos.OrgRepo;
+import com.codingdojo.mutualade.repos.MemberRepo;
 import com.codingdojo.mutualade.repos.UserRepo;
 
 @Service
-public class OrgService {
+public class MemberService {
 	
 	@Autowired
-	OrgRepo orgRepo;
-
+	MemberRepo memRepo;
+	
 	@Autowired
 	UserRepo userRepo;
 	
-	// Org Registration
+	// Mem Registration
 	
-	public Organization register(Organization newUser, BindingResult result) {
+	public Member register(Member newUser, BindingResult result) {
 		
-		Optional<User> userLookUp = userRepo.findByEmail(newUser.getOrgName());
+		Optional<User> userLookUp = userRepo.findByEmail(newUser.getEmail());
 		
 		if(userLookUp.isPresent()) {
 			result.rejectValue("email", "Unique", "Account with this email already exists");
@@ -45,18 +42,19 @@ public class OrgService {
 		
 		String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
 		newUser.setPassword(hashed);
-		newUser = orgRepo.save(newUser);
+		newUser = userRepo.save(newUser);
 		System.out.println("New user created with ID: " + newUser.getId());
 		
 		return newUser;
 		
 	}
 	
-	// Org Login
+	// Login User
 	
 	public User login(LoginUser newLogin, BindingResult result) {
 		
 		Optional<User> userLookUp = userRepo.findByEmail(newLogin.getEmail());
+		
 		if (!userLookUp.isPresent()) {
 			result.rejectValue("email", "NoAccount", "No account found.");
 			return null;
@@ -73,43 +71,15 @@ public class OrgService {
 			return null;
 		}
 		
+		System.out.println(user.getId());
+		
 		return user;
 		
 	}
 	
-	// Get One Org
+	// Get One User
 	
-	public Organization oneOrg(Long id) {
-		
-		Organization org = orgRepo.findById(id).orElse(null);
-		System.out.println(org.getOrgName());
-		
-		
-		return org;
+	public User oneUser(Long id) {
+		return userRepo.findById(id).orElse(null);
 	}
-	
-	// Get OrgAid for One Org
-	
-	public List<OrgAid> getOrgAid(Long id) {
-		
-		
-		
-		Organization org = orgRepo.findById(id).orElse(null);
-		
-		List<OrgAid> orgAid = org.getOrgAid();
-		
-
-		
-		return org.getOrgAid();
-	}
-	
-	// Get All Orgs
-	
-	public List<Organization> allOrgs() {
-		
-		List<Organization> allOrgs = orgRepo.findAll();
-		
-		return allOrgs;
-	}
-	
 }

@@ -1,9 +1,6 @@
 package com.codingdojo.mutualade.models;
 
 
-
-
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -61,7 +58,7 @@ public class AidRequest {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
-	private User user;
+	private Member member;
 	
 	
 	@PrePersist
@@ -139,17 +136,18 @@ public class AidRequest {
 	public void setAidDate(Date aidDate) {
 		this.aidDate = aidDate;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public String getDateSTR() {
 		return dateSTR;
 	}
 	public void setDateSTR(String dateSTR) {
 		this.dateSTR = dateSTR;
+	}
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	
 	

@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
-			<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+			<a href="/member/profile">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row align-items-start">
@@ -36,7 +36,7 @@
 					<c:forEach items="${mutualAid}" var="aid">
 						<tr>
 							<td><a href="/aid/${aid.id}" style="color:#C2185B"><c:out value="${aid.title}"></c:out></a></td>
-							<td><c:out value="${aid.user.firstName}"></c:out></td>
+							<td><c:out value="${aid.member.firstName}"></c:out></td>
 							<td><c:out value="${aid.urgency}"></c:out></td>
 						</tr>
 					</c:forEach>

@@ -2,14 +2,14 @@ package com.codingdojo.mutualade.models;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="organization")
+@DiscriminatorValue(value = "ORGANIZATION")
 public class Organization extends User {
 	
 	@NotEmpty(message="Company Name is required")
