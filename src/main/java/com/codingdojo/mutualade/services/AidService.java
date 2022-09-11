@@ -69,6 +69,7 @@ public class AidService {
 		aidReq.setDateSTR(strDate);
 		System.out.println(aidReq.getDateSTR());
 		System.out.println(aidReq.getAidDate());
+		System.out.println(aidReq.getMember());
 		return aidRepo.findById(id).orElse(null);
 	}
 	

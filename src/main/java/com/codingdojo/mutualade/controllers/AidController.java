@@ -68,6 +68,8 @@ public class AidController {
 		model.addAttribute("aid", aidService.oneAidReq(id));
 		
 		
+		
+		
 		return "OneAid.jsp";
 	}
 	
@@ -115,6 +117,7 @@ public class AidController {
 		}
 		
 		aidService.createAidReq(aidReq);
+		System.out.println(aidReq.getMember());
 		
 		return "redirect:/dashboard";
 		

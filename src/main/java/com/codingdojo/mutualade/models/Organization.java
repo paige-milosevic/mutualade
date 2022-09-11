@@ -2,6 +2,7 @@ package com.codingdojo.mutualade.models;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,9 @@ public class Organization extends User {
 	
 	@NotEmpty(message="Company Name is required")
 	private String orgName;
+	
+	@Column
+	private String descriptor = "ORGANIZATION";
 	
 	@OneToMany(mappedBy="org", fetch = FetchType.LAZY)
 	private List<OrgAid> orgAid;

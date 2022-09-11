@@ -16,6 +16,7 @@ public class Member extends User {
 	@Column
 	private String location;
 	
+	
 	@OneToMany(mappedBy="member", fetch = FetchType.LAZY)
 	private List<AidRequest> aidReq;
 	

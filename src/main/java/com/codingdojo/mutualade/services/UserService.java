@@ -1,5 +1,6 @@
 package com.codingdojo.mutualade.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -78,5 +79,9 @@ public class UserService {
 		return userRepo.findById(id).orElse(null);
 	}
 	
+	// Get All Users
+	public List<User> allUsers() {
+		return userRepo.findAll();
+	}
 	
 }

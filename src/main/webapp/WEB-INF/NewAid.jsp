@@ -72,7 +72,7 @@
 					<form:input path="instagram" input="text"/>
 				</div>
 				<div>
-					<form:input type="hidden" path="member" value="${member.id}"/>
+					<form:input type="hidden" path="member" value="${user.id}"/>
 				</div>
 				<input class="btn btn-sm pink_button mt-2" type="submit" value="Submit Request">
 			</form:form>

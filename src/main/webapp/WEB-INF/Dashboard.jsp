@@ -43,7 +43,7 @@
 					</tbody>
 				</table>
 				<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
-<%--   	 			<c:if test ="${user.id != }">
+<%--     	 			<c:if test ="${user.user_type === 'ORGANIZATION'}">
 					<a class="btn pink_button" href="/aid/new" role="button">Make MutualAde</a>
 				</c:if>  --%>
 			</div>
@@ -64,6 +64,10 @@
 					</c:forEach>				
 					</tbody>
 				</table>
+				<c:if test= "${organization.descriptor == 'ORGANIZATION'}">
+					<h2>I am an <c:out value ="${organization.firstName}"></c:out>.</h2>
+				
+				</c:if>
 				<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
 			</div>
 		</div>
