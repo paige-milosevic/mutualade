@@ -84,6 +84,14 @@ public class OrgAidService {
 	// Get All Org Aid
 	
 	public List<OrgAid> allOrgAid() {
+		
+		List<OrgAid> orgList = orgAidRepo.findAll();
+		
+		
+		for(int i=0;i<orgList.size(); i++) {
+			
+		}
+		
 		return orgAidRepo.findAll();
 	}
 	
