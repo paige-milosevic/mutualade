@@ -1,7 +1,10 @@
 package com.codingdojo.mutualade.services;
 
-import java.lang.reflect.Field;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -98,7 +101,14 @@ public class OrgService {
 		
 		List<OrgAid> orgAid = org.getOrgAid();
 		
-
+		
+		for (int i =0; i<orgAid.size(); i++) {
+			Date orgAidDAte = orgAid.get(i).getAidDate();
+			DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+			String strDate = dateFormat.format(orgAidDAte);
+			orgAid.get(i).setDateSTR(strDate);
+			
+		}
 		
 		return org.getOrgAid();
 	}
