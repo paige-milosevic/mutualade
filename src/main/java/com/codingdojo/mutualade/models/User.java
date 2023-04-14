@@ -39,7 +39,14 @@ public class User {
 	@NotEmpty(message="Password is required")
 	@Size(min=8, max=120, message="Password must be between 8 and 120 characters")
 	private String password;
+
 	
+	public List<AidRequest> getAidReq() {
+		return aidReq;
+	}
+	public void setAidReq(List<AidRequest> aidReq) {
+		this.aidReq = aidReq;
+	}
 	@Transient
 	@NotEmpty(message="Please confirm your password")
 	@Size(min=8, max=120, message="Password must be between 8 and 120 characters")
@@ -115,7 +122,6 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
 	
 	
 	

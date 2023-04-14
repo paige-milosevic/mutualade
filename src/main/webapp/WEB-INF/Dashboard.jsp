@@ -43,6 +43,10 @@
 					</tbody>
 				</table>
 				<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
+				<%-- <c:if test="${user.dtype == User}">
+					<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
+				</c:if> --%>
+				
 <%--   	 			<c:if test ="${user.id != }">
 					<a class="btn pink_button" href="/aid/new" role="button">Make MutualAde</a>
 				</c:if>  --%>
@@ -65,6 +69,9 @@
 					</tbody>
 				</table>
 				<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
+				<%-- <c:if test="${user.dtype == Organization}">
+					<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
+				</c:if> --%>
 			</div>
 		</div>
 	</div>
