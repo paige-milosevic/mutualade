@@ -42,14 +42,9 @@
 					</c:forEach>
 					</tbody>
 				</table>
-				<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
-				<%-- <c:if test="${user.dtype == User}">
-					<a class="btn pink_button" href="/aid/new" role="button">Create Aid Request</a>
-				</c:if> --%>
-				
-<%--   	 			<c:if test ="${user.id != }">
+   	 			<c:if test ="${user.userType == 'Member'}">
 					<a class="btn pink_button" href="/aid/new" role="button">Make MutualAde</a>
-				</c:if>  --%>
+				</c:if> 
 			</div>
 			<div class="col">
 				<h4>Organizations Offering Aid</h4>
@@ -68,10 +63,9 @@
 					</c:forEach>				
 					</tbody>
 				</table>
-				<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
-				<%-- <c:if test="${user.dtype == Organization}">
+				<c:if test="${user.userType == 'Organization'}">
 					<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
-				</c:if> --%>
+				</c:if>
 			</div>
 		</div>
 	</div>

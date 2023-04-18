@@ -72,6 +72,7 @@
 						<form:label path="confirm">Confirm Password</form:label>
 						<form:input path="confirm" type="password"/>
 					</div>
+					<form:input type="hidden" path="userType" value="Organization"/>
 					<button class="btn btn-sm pink_button" type="submit">Submit</button>
 				</form:form>
 			</div>

@@ -40,6 +40,8 @@ public class User {
 	@Size(min=8, max=120, message="Password must be between 8 and 120 characters")
 	private String password;
 
+	@NotEmpty
+	private String userType;
 	
 	public List<AidRequest> getAidReq() {
 		return aidReq;
@@ -109,6 +111,12 @@ public class User {
 	}
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
