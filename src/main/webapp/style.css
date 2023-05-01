@@ -14,4 +14,12 @@
 	background-color: #C2185B;
 }
 
+a {
+	color:  #C2185B;
+	text-decoration: underline;
+}
 
+a:hover {
+	text-decoration: none;
+	color:  #C2185B;
+}

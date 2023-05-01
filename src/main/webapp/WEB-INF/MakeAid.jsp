@@ -42,7 +42,7 @@
 						<option value="Weekly">Weekly</option>
 						<option value="Bi-Weekly">Bi-Weekly</option>
 						<option value="Monthly">Monthly</option>
-						<option value="OneTime">One Time</option>
+						<option value="One Time">One Time</option>
 					</form:select>
 				</div>
 				<div class="form-row mt-2 col-md-12">

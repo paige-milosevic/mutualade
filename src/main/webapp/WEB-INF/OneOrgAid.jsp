@@ -25,7 +25,6 @@
 		<div class="card w-50 mt-2">
 			<div class="card-body">
 				<p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${orgAid.frequency}"></c:out> is seeking mutual aid.</p>
 				<p class="card-text lh-1">Description: <c:out value="${orgAid.description}"></c:out></p>
 				<p class="card-text lh-1">Need Date: <c:out value="${orgAid.dateSTR}"></c:out></p>
 				<p class="card-text lh-1">Frequency: <c:out value="${orgAid.frequency}"></c:out></p>
