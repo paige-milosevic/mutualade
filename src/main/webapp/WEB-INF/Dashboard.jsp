@@ -18,7 +18,12 @@
 	<div class="container">
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
-			<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+			<c:if test="${user.userType == 'Organization'}">
+				<a href="/org/profile/${user.id}">Welcome, <c:out value="${user.firstName}"></c:out></a>
+			</c:if>
+			<c:if test="${user.userType == 'Member'}">
+				<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+			</c:if>
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row align-items-start">
