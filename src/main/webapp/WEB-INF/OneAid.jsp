@@ -25,14 +25,14 @@
 		<div class="card w-50 mt-2">
 			<div class="card-body">
 				<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${aid.user.firstName}"></c:out> is seeking mutual aid.</p>
+				<p class="card-text lh-1"><c:out value="${aid.member.firstName}"></c:out> is seeking mutual aid.</p>
 				<p class="card-text lh-1">Description: <c:out value="${aid.description}"></c:out></p>
 				<p class="card-text lh-1">Need Date: <c:out value="${aid.dateSTR}"></c:out></p>
 				<p class="card-text lh-1">Urgency: <c:out value="${aid.urgency}"></c:out></p>
-				<p class="card-text lh-1"><c:out value="${aid.user.firstName}"></c:out>'s contact information: </p>
+				<p class="card-text lh-1"><c:out value="${aid.member.firstName}"></c:out>'s contact information: </p>
 				<p class="card-text lh-1">Instagram: <c:out value="${aid.instagram}"></c:out></p>
 				<p class="card-text lh-1">Venmo: <c:out value="${aid.venmo}"></c:out></p>
-				<c:if test ="${aid.user.id == user.id}">
+				<c:if test ="${aid.member.id == user.id}">
 					<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
 					<form:form action="/aid/delete/${aid.id}" method="delete">
 					<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>

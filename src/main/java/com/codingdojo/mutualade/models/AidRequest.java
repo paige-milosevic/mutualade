@@ -61,7 +61,7 @@ public class AidRequest {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
-	private User user;
+	private Member member;
 	
 	
 	@PrePersist
@@ -139,11 +139,11 @@ public class AidRequest {
 	public void setAidDate(Date aidDate) {
 		this.aidDate = aidDate;
 	}
-	public User getUser() {
-		return user;
+	public Member getMember() {
+		return member;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	public String getDateSTR() {
 		return dateSTR;

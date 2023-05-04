@@ -41,7 +41,7 @@
 					<c:forEach items="${mutualAid}" var="aid">
 						<tr>
 							<td><a href="/aid/${aid.id}" style="color:#C2185B"><c:out value="${aid.title}"></c:out></a></td>
-							<td><c:out value="${aid.user.firstName}"></c:out></td>
+							<td><c:out value="${aid.member.firstName}"></c:out></td>
 							<td><c:out value="${aid.urgency}"></c:out></td>
 						</tr>
 					</c:forEach>

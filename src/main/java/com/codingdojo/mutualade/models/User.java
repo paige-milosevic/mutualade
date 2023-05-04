@@ -27,7 +27,7 @@ public class User {
 	private Long id;
 	
 	@NotEmpty(message="First Name is required")
-	private String firstName;
+	protected String firstName;
 	
 	@NotEmpty(message="Last Name is required")
 	private String lastName;
@@ -43,12 +43,6 @@ public class User {
 	@NotEmpty
 	private String userType;
 	
-	public List<AidRequest> getAidReq() {
-		return aidReq;
-	}
-	public void setAidReq(List<AidRequest> aidReq) {
-		this.aidReq = aidReq;
-	}
 	@Transient
 	@NotEmpty(message="Please confirm your password")
 	@Size(min=8, max=120, message="Password must be between 8 and 120 characters")
@@ -57,9 +51,6 @@ public class User {
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
-	
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-	private List<AidRequest> aidReq;
 	
 	@PrePersist
 	protected void onCreate(){
