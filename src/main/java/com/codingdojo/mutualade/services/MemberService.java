@@ -73,5 +73,25 @@ public class MemberService {
 		return user;
 		
 	}
+	
+	// Get One Member
+	
+	public Member oneMember(Long id) {
+		
+		System.out.println(id);
+		
+		Member member = memberRepo.findById(id).orElse(null);
+		System.out.println(member.getFirstName());
+		
+		return member;
+	}
+	
+	// Get Mutual Aid for One Member
+	
+	
+	
+	
+	
+	
 
 }

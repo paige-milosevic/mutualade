@@ -22,7 +22,7 @@
 				<a href="/org/profile/${user.id}">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			</c:if>
 			<c:if test="${user.userType == 'Member'}">
-				<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+				<a href="/member/profile/${user.id}">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			</c:if>
 			<a href="/logout">Logout</a>
 		</div>
