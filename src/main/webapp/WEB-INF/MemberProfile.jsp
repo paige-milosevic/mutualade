@@ -28,7 +28,11 @@
 		</div>
 		<div class="row">
 			<h4><c:out value="${user.firstName}"></c:out></h4>
+			<p>Email Address: <c:out value="${user.email}"></c:out></p>
 		</div>		
+		<div>
+			<a class="btn btn-sm yellow_button mt-2" href="/update/member/profile/${user.id}" role="button">Edit Profile</a>
+		</div>
 
 	</div>
 </body>
