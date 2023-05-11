@@ -35,6 +35,7 @@ public class MemberController {
 		
 		model.addAttribute("user", userService.oneUser((Long)session.getAttribute("userId")));
 		model.addAttribute("member", memberService.oneMember(id));
+		model.addAttribute("aid", memberService.getMemberAid(id));
 		
 		
 		return "MemberProfile.jsp";

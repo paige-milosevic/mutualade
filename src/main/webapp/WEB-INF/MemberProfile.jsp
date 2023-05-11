@@ -35,6 +35,13 @@
 			<a class="btn btn-sm yellow_button mt-2" href="/update/member/profile/${user.id}" role="button">Edit Profile</a>
 			<a class="btn btn-sm pink_button mt-2" href="/update/member/password/${user.id}" role="button">Change Password</a>
 		</div>
+		<div>
+			<c:forEach items="${aid}" var="aid">
+				<td><a href="/aid/${aid.id}" style="color:#C2185B"><c:out value="${aid.title}"></c:out></a></td>
+				<td><c:out value="${aid.member.firstName}"></c:out></td>
+				<td><c:out value="${aid.urgency}"></c:out></td>
+			</c:forEach>
+		</div>
 
 	</div>
 </body>

@@ -1,5 +1,9 @@
 package com.codingdojo.mutualade.services;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -7,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.codingdojo.mutualade.models.AidRequest;
 import com.codingdojo.mutualade.models.LoginUser;
 import com.codingdojo.mutualade.models.Member;
 import com.codingdojo.mutualade.models.User;
@@ -88,7 +93,22 @@ public class MemberService {
 	
 	// Get Mutual Aid for One Member
 	
-	
+	public List<AidRequest> getMemberAid(Long id) {
+		
+		Member member = memberRepo.findById(id).orElse(null);
+		
+		List<AidRequest> memberAid = member.getAidReq();
+		
+		for (int i =0; i<memberAid.size(); i++) {
+			Date orgAidDAte = memberAid.get(i).getAidDate();
+			DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+			String strDate = dateFormat.format(orgAidDAte);
+			memberAid.get(i).setDateSTR(strDate);
+			
+		}
+		
+		return member.getAidReq();
+	}
 	
 	
 	
