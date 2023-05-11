@@ -22,11 +22,12 @@
 				<a href="/org/profile/${user.id}">Welcome, <c:out value="${user.firstName}"></c:out></a>
 			</c:if>
 			<c:if test="${user.userType == 'Member'}">
-				<a href="/">Welcome, <c:out value="${user.firstName}"></c:out></a>
+				<a href="/">Dashboard</a>
 			</c:if>
 			<a href="/logout">Logout</a>
 		</div>
-		<div class="row">
+		
+		<div>
 			<h4>Your Profile</h4>
 			<p>Name: <c:out value="${user.firstName}"></c:out> <c:out value="${user.lastName}"></c:out></p>
 			<p>Email Address: <c:out value="${user.email}"></c:out></p>
@@ -35,12 +36,33 @@
 			<a class="btn btn-sm yellow_button mt-2" href="/update/member/profile/${user.id}" role="button">Edit Profile</a>
 			<a class="btn btn-sm pink_button mt-2" href="/update/member/password/${user.id}" role="button">Change Password</a>
 		</div>
-		<div>
+		<div class="row">
+
+			<h3>Your Current Aid Requests</h3>
+			<div class="col-sm-6">
 			<c:forEach items="${aid}" var="aid">
-				<td><a href="/aid/${aid.id}" style="color:#C2185B"><c:out value="${aid.title}"></c:out></a></td>
-				<td><c:out value="${aid.member.firstName}"></c:out></td>
-				<td><c:out value="${aid.urgency}"></c:out></td>
+				<div class="card">
+					<div class="w-50 mt-2">
+						<div class="card-body">
+							<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
+							<p class="card-text lh-1"><c:out value="${aid.member.firstName}"></c:out> is seeking mutual aid.</p>
+							<p class="card-text lh-1">Description: <c:out value="${aid.description}"></c:out></p>
+							<p class="card-text lh-1">Need Date: <c:out value="${aid.dateSTR}"></c:out></p>
+							<p class="card-text lh-1">Urgency: <c:out value="${aid.urgency}"></c:out></p>
+							<p class="card-text lh-1"><c:out value="${aid.member.firstName}"></c:out>'s contact information: </p>
+							<p class="card-text lh-1">Instagram: <c:out value="${aid.instagram}"></c:out></p>
+							<p class="card-text lh-1">Venmo: <c:out value="${aid.venmo}"></c:out></p>
+							<c:if test ="${aid.member.id == user.id}">
+								<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
+								<form:form action="/aid/delete/${aid.id}" method="delete">
+								<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>
+								</form:form>
+							</c:if>
+						</div>
+					</div>
+				</div>
 			</c:forEach>
+			</div>
 		</div>
 
 	</div>
