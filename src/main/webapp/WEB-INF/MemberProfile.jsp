@@ -27,11 +27,13 @@
 			<a href="/logout">Logout</a>
 		</div>
 		<div class="row">
-			<h4><c:out value="${user.firstName}"></c:out></h4>
+			<h4>Your Profile</h4>
+			<p>Name: <c:out value="${user.firstName}"></c:out> <c:out value="${user.lastName}"></c:out></p>
 			<p>Email Address: <c:out value="${user.email}"></c:out></p>
 		</div>		
 		<div>
 			<a class="btn btn-sm yellow_button mt-2" href="/update/member/profile/${user.id}" role="button">Edit Profile</a>
+			<a class="btn btn-sm pink_button mt-2" href="/update/member/password/${user.id}" role="button">Change Password</a>
 		</div>
 
 	</div>
