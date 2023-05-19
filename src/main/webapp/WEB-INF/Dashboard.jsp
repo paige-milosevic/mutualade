@@ -20,6 +20,7 @@
 </head>
 <body>
 	<div class="container">
+	
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
 			<c:if test="${user.userType == 'Organization'}">
@@ -30,8 +31,9 @@
 			</c:if>
 			<a href="/logout">Logout</a>
 		</div>
+		
 		<div class="row align-items-start">
-			<div class="col">
+			<div class="col-md-6">
 				<h4>Mutual Aid Requests</h4>
 				<table class="table">
 					<thead>
@@ -59,7 +61,7 @@
 					<a class="btn pink_button" href="/aid/new" role="button">Make MutualAde</a>
 				</c:if> 
 			</div>
-			<div class="col">
+			<div class="col-md-6">
 				<h4>Organizations Offering Aid</h4>
 				<table class="table">
 					<thead>
@@ -80,15 +82,18 @@
 					<a class="btn pink_button" href="/org/make/aid" role="button">Make MutualAde</a>
 				</c:if>
 			</div>
-				<h3>Aid Map</h3>
-    		<!--The div element for the map -->
-		    <div id="map">
-		    </div>
-		
-		    <!-- prettier-ignore -->
-		    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-		        ({key: "AIzaSyDe07iwewSPWd_YZhPpuqXcsju_Oc_f2K0", v: "weekly"});</script>
-			</div>
+		</div>
+		<div class="row pt-4">
+				<div class="col">
+					<h3>Mutual Aid Locations</h3>
+		    		<!--The div element for the map -->
+				    <div id="map">
+				    </div>
+			
+				    <!-- prettier-ignore -->
+				    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+				        ({key: "AIzaSyDe07iwewSPWd_YZhPpuqXcsju_Oc_f2K0", v: "weekly"});</script>
+				</div>
 		</div>
 	</div>
 </body>
