@@ -30,9 +30,9 @@
 			<h6>Check out the MutualAde <c:out value="${org.orgName}"></c:out> is offering!</h6>
 		</div>
 		<div class="row">
-		<c:forEach items="${orgAid}" var="orgAid">
-			<div>
-				<div class="card w-50 mt-2">
+			<c:forEach items="${orgAid}" var="orgAid">
+			<div class="col-md-6 pt-3">
+				<div class="card mt-2">
 					<div class="card-body">
 					<a href="/orgaid/${orgAid.id}"><p class="card-title fw-bold"><c:out value="${orgAid.title}"></c:out></p></a>
 					<p class="card-text"><c:out value="${orgAid.description}"></c:out></p>
@@ -49,16 +49,7 @@
 					</div>
 				</div>
 			</div>
-		</c:forEach>
-		</div>
-	<h3>Aid Map</h3>
-    <!--The div element for the map -->
-    <div id="map">
-    </div>
-
-    <!-- prettier-ignore -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyDe07iwewSPWd_YZhPpuqXcsju_Oc_f2K0", v: "weekly"});</script>
+			</c:forEach>
 	</div>
 </body>
 </html>

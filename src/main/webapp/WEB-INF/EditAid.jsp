@@ -44,7 +44,7 @@
 						<form:errors path="urgency"/>
 					</div>
 					<form:label path="urgency">Urgency: </form:label>
-					<form:select path="urgency">
+					<form:select path="urgency" value="${aid.urgency}">
 						<option value="${aid.urgency}"><c:out value="${aid.urgency}"></c:out></option>
 						<option value="High">High</option>
 						<option value="Medium">Medium</option>

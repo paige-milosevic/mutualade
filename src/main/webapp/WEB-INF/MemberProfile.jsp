@@ -41,19 +41,19 @@
 			<h3>Your Current Aid Requests</h3>
 			<c:forEach items="${aid}" var="aid">
 			<div class="col-md-6 pt-3">
-				<div class="card">
-					<div class="w-50 mt-2">
-						<div class="card-body">
-							<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
-							<p><c:out value="${aid.dateSTR}"></c:out></p>
-							<c:if test ="${aid.member.id == user.id}">
-								<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
-								<form:form action="/aid/delete/${aid.id}" method="delete">
-								<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>
-								</form:form>
-							</c:if>
-						</div>
+				<div class="card mt-2">
+					<div class="card-body">
+						<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
+						<p><c:out value="${aid.dateSTR}"></c:out></p>
+						<p><c:out value="${aid.privacy}"></c:out></p>
+						<c:if test ="${aid.member.id == user.id}">
+							<a class="btn btn-sm pink_button mt-2 " href="/aid/edit/${aid.id}" role="button">Update Aid Request</a>
+							<form:form action="/aid/delete/${aid.id}" method="delete">
+							<button class="btn btn-sm yellow_button mt-2">I Have Received Aid</button>
+							</form:form>
+						</c:if>
 					</div>
+
 				</div>
 			</div>
 			</c:forEach>
