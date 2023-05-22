@@ -18,12 +18,7 @@
 	<div class="container">
 		<div class="navbar justify-content-between align-items-center">
 			<h1 style="font-weight: bold"><span style="color:#C2185B">Mutual</span><span style="color:#FBC02D">Ade</span></h1>
-			<c:if test="${user.userType == 'Organization'}">
-				<a href="/org/profile/${user.id}">Welcome, <c:out value="${user.firstName}"></c:out></a>
-			</c:if>
-			<c:if test="${user.userType == 'Member'}">
-				<a href="/">Dashboard</a>
-			</c:if>
+			<a href="/">Dashboard</a>
 			<a href="/logout">Logout</a>
 		</div>
 		
@@ -37,10 +32,9 @@
 			<a class="btn btn-sm pink_button mt-2" href="/update/member/password/${user.id}" role="button">Change Password</a>
 		</div>
 		<div class="row pt-5">
-
 			<h3>Your Current Aid Requests</h3>
 			<c:forEach items="${aid}" var="aid">
-			<div class="col-md-6 pt-3">
+			<div class="col-md-6 pt-3 mb-3">
 				<div class="card mt-2">
 					<div class="card-body">
 						<p class="card-title fw-bold"><c:out value="${aid.title}"></c:out></p>
@@ -53,7 +47,6 @@
 							</form:form>
 						</c:if>
 					</div>
-
 				</div>
 			</div>
 			</c:forEach>
