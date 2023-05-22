@@ -38,6 +38,22 @@ public class HomeController {
 	
 	//GET Requests
 	
+	@GetMapping("/forgot/password")
+	public String forgotPassword(Model model,
+			HttpSession session
+			) {
+		
+
+		
+		if (session.getAttribute("userId") != null) {
+			return "redirect:/dashboard";
+		} 
+		
+		
+		return "ForgotPassword.jsp";
+	}
+	
+	
 	// Member Login & Reg
 	
 	@GetMapping("/")
