@@ -25,14 +25,26 @@
 			<h4>When life give you <span style="color:#FBC02D""font-weight:bold">lemons</span>... Give MutualAde!</h4>
 			<p style="color:#C2185B">MutualAde is a community board that connects individuals looking for aid to those with the capacity to give it.</p>
 		</div>
-<%-- 		<div class="row">
-			<form:form actions="/forgot/password/redirect" method="post" class="form">
-				<p><form:errors path="email"/></p>
-				<form:label path="email">Email</form:label>
-				<form:input path="email" type="email"/>
-			</form:form>
+		<div class="col">
+			<h2>Forgot Password</h2>
+			<div>
+			<c:if test="${error != null}">
+				<p class="text-danger"><c:out value="${error}"></c:out></p>
+			</c:if>
+			</div> 
+			<form action="/forgot_password" method="post" class="form" >
+				<div>
+					<p>We will send a reset password link to your email.</p>
+				</div>
+	 			<div class="form-row mt-2 col-md-12">
+					<label name="email">Email</label>
+					<form:input path="email" type="email"/>
+				</div> 
+				<input type="submit" value="Send" class="btn btn-sm pink_button" />
+			</form>
+		</div>
 		
-		</div> --%>
-	</div>
+		
+	</div>	
 </body>
 </html>

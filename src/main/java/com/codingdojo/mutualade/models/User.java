@@ -1,15 +1,12 @@
 package com.codingdojo.mutualade.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -42,6 +39,9 @@ public class User {
 
 	@NotEmpty
 	private String userType;
+	
+	@Column(name = "reset_password_token")
+	private String resetPasswordToken;
 	
 	@Transient
 	@NotEmpty(message="Please confirm your password")
@@ -121,7 +121,12 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+	public String getResetPasswordToken() {
+		return resetPasswordToken;
+	}
+	public void setResetPasswordToken(String resetPasswordToken) {
+		this.resetPasswordToken = resetPasswordToken;
+	}
 	
 	
 	

@@ -72,6 +72,43 @@ public class UserService {
 		
 	}
 	
+	// Update Reset Password
+	
+	public void updateResetPasswordToken(String token, String email) throws UserNotFoundException {
+		
+		Optional<User> userLookUp = userRepo.findByEmail(email);
+		
+		User user = userLookUp.get();
+		
+		if (user != null) {
+			
+			user.setResetPasswordToken(token);
+			userRepo.save(user);
+			
+		} else {
+			throw new UserNotFoundException("Could not find any user with the email " + email);
+		}
+			
+	}
+	
+	// Get by Reset Password Token
+	
+	public User getByResetPasswordToken(String token) {
+		return userRepo.findByResetPasswordToken(token);
+	}
+	
+	// Update User Password
+	
+	public void updatePassword(User user, String newPassword) {
+		
+		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+		user.setPassword(hashed);
+		user.setResetPasswordToken(null);
+		user = userRepo.save(user);
+		
+		
+	}
+	
 	// Get One User
 	
 	public User oneUser(Long id) {

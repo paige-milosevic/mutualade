@@ -91,7 +91,7 @@
 						<form:input path="password" type="password"/>
 					</div>
 					<div>
-						<a href="/forgot/password">Forgot Password?</a>
+						<a href="/forgot_password">Forgot Password?</a>
 					</div>
 					<button class="btn btn-sm yellow_button" type="submit">Login</button>
 				</form:form>
