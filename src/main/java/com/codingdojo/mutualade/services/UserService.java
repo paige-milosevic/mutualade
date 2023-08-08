@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
 import com.codingdojo.mutualade.models.LoginUser;
@@ -74,16 +75,20 @@ public class UserService {
 	
 	// Update Reset Password
 	
+	@Transactional(readOnly = true)
 	public void updateResetPasswordToken(String token, String email) throws UserNotFoundException {
 		
 		Optional<User> userLookUp = userRepo.findByEmail(email);
 		
 		User user = userLookUp.get();
+		System.out.println(user);
 		
 		if (user != null) {
 			
 			user.setResetPasswordToken(token);
+			System.out.println(user.getResetPasswordToken());
 			userRepo.save(user);
+			
 			
 		} else {
 			throw new UserNotFoundException("Could not find any user with the email " + email);

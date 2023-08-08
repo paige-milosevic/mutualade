@@ -26,21 +26,22 @@
 			<p style="color:#C2185B">MutualAde is a community board that connects individuals looking for aid to those with the capacity to give it.</p>
 		</div>
 		<div class="col">
-			<h2>Forgot Password</h2>
+			<h2>Reset Password</h2>
 			<div>
 			<c:if test="${error != null}">
 				<p class="text-danger"><c:out value="${error}"></c:out></p>
 			</c:if>
 			</div> 
-			<form action="/forgot_password" method="post" class="form" >
+			<form action="/reset_password" method="post" class="form" >
+				<input type="hidden" name="token" valiue="${token}"/>
 				<div>
-					<p>We will send a reset password link to your email.</p>
+					<input type="password" name="password" placeholder="Enter your new password"/>
 				</div>
 	 			<div class="form-row mt-2 col-md-12">
-					<input type="email" name="email">
+					<input type="password"placeholder="Confirm your new password" required oninput="checkPasswordMatch(this);"/>
 				</div>  
 				<div class="form-row mt-2 col-md-12">
-					<input type="submit" value="Send" class="btn btn-sm pink_button" />
+					<input type="submit" value="Change Password" class="btn btn-sm pink_button" />
 				</div>
 			</form>
 		</div>
