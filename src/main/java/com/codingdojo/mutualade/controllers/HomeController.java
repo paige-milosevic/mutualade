@@ -42,7 +42,8 @@ public class HomeController {
 	// Member Login & Reg
 	
 	@GetMapping("/")
-	public String index(Model model,
+	public String index(
+			Model model,
 			HttpSession session
 			) {
 		model.addAttribute("newUser", new User());
@@ -58,7 +59,8 @@ public class HomeController {
 	// Org Login & Reg
 	
 	@GetMapping("/org")
-	public String indexOrg(Model model,
+	public String indexOrg(
+			Model model,
 			HttpSession session
 			) {
 		model.addAttribute("newUser", new Organization());
@@ -75,7 +77,8 @@ public class HomeController {
 		
 		
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(
+			HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}

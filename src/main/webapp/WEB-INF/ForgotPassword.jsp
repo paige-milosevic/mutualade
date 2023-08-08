@@ -32,15 +32,16 @@
 				<p class="text-danger"><c:out value="${error}"></c:out></p>
 			</c:if>
 			</div> 
-			<form action="/forgot_password" method="post" class="form" >
+			<form action="/forgot_password_post" method="post" class="form" >
 				<div>
 					<p>We will send a reset password link to your email.</p>
 				</div>
 	 			<div class="form-row mt-2 col-md-12">
-					<label name="email">Email</label>
-					<form:input path="email" type="email"/>
-				</div> 
-				<input type="submit" value="Send" class="btn btn-sm pink_button" />
+					<input type="email" name="email">
+				</div>  
+				<div class="form-row mt-2 col-md-12">
+					<input type="submit" value="Send" class="btn btn-sm pink_button" />
+				</div>
 			</form>
 		</div>
 		
